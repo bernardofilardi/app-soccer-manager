@@ -1,6 +1,6 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
-public class Zagueiro extends Jogador {
+public class Defesa extends Jogador {
 
     private boolean atua_volante;
     private float acerto_desarme;
