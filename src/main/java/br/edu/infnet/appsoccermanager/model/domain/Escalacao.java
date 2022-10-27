@@ -1,15 +1,24 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
+import java.util.List;
+
 public class Escalacao {
 
     private String descricao;
     private String organizacao;
     private boolean utilizada_anteriormente;
     private String analise;
+    private Tecnico tecnico;
+
+    private List<Jogador> jogadores;
+
+    public Escalacao(Tecnico tecnico) {
+        this.setTecnico(tecnico);
+    }
 
     @Override
     public String toString() {
-        return descricao + ';' + organizacao + ';' + utilizada_anteriormente + analise;
+        return descricao + ';' + organizacao + ';' + utilizada_anteriormente + ";" + analise + ";" + tecnico;
     }
 
     public String getDescricao() {
@@ -42,5 +51,21 @@ public class Escalacao {
 
     public void setAnalise(String analise) {
         this.analise = analise;
+    }
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
+
+    public List<Jogador> getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(List<Jogador> jogadores) {
+        this.jogadores = jogadores;
     }
 }
