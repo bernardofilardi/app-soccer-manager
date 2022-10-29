@@ -1,5 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
+import br.edu.infnet.appsoccermanager.controller.TecnicoController;
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -31,5 +32,9 @@ public class TecnicoTeste implements ApplicationRunner {
         tecnico3.setIdade(46);
         tecnico3.setTempo_carreira(12);
         System.out.println("> Técnico 3: " + tecnico3);
+
+        TecnicoController.incluir(tecnico1);
+        TecnicoController.incluir(tecnico2);
+        TecnicoController.incluir(tecnico3);
     }
 }

@@ -1,5 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
+import br.edu.infnet.appsoccermanager.controller.DefesaController;
 import br.edu.infnet.appsoccermanager.model.domain.Defesa;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -40,5 +41,10 @@ public class DefesaTeste implements ApplicationRunner {
         defesa3.setAtua_volante(false);
         defesa3.setAcerto_desarme(Float.parseFloat("93"));
         System.out.println("> Zagueiro 3: " + defesa3);
+
+        DefesaController.incluir(defesa1);
+        DefesaController.incluir(defesa2);
+        DefesaController.incluir(defesa3);
+
     }
 }

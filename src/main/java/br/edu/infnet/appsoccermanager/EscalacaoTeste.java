@@ -1,5 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
+import br.edu.infnet.appsoccermanager.controller.*;
 import br.edu.infnet.appsoccermanager.model.domain.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Order(1)
+@Order(8)
 @Component
 public class EscalacaoTeste implements ApplicationRunner {
 
@@ -17,40 +18,12 @@ public class EscalacaoTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("### Cadastro de Escalações ###");
 
-        Atacante atacante = new Atacante();
-        atacante.setNome("Gabriel Barbosa");
-        atacante.setAltura(Float.parseFloat("1.78"));
-        atacante.setPeso(Float.parseFloat("77"));
-        atacante.setAnalise("Atacante com presença de área e finalização da entrada da mesma.");
-        atacante.setAtua_meiocampo(false);
-        atacante.setAcerto_finalizacao(Float.parseFloat("72"));
-
-        Defesa defesa = new Defesa();
-        defesa.setNome("David Luiz");
-        defesa.setAltura(Float.parseFloat("1.88"));
-        defesa.setPeso(Float.parseFloat("85"));
-        defesa.setAnalise("Seguro na defesa. Liderança dentro de campo. Apoio emocional para jovens.");
-        defesa.setAtua_volante(true);
-        defesa.setAcerto_desarme(Float.parseFloat("92"));
-
-        MeioCampo meioCampo = new MeioCampo();
-        meioCampo.setNome("Giorgian De Arrascaeta");
-        meioCampo.setAltura(Float.parseFloat("1.80"));
-        meioCampo.setPeso(Float.parseFloat("77"));
-        meioCampo.setAnalise("Visão de jogo e ótimo passe. Contribui muito nas infiltrações.");
-        meioCampo.setAtua_ataque(false);
-        meioCampo.setAcerto_passe(Float.parseFloat("85")) ;
-
         List<Jogador> jogadores = new ArrayList<>();
-        jogadores.add(atacante);
-        jogadores.add(defesa);
-        jogadores.add(meioCampo);
+        jogadores.add(AtacanteController.obterLista().stream().filter(ata -> "Gabriel Barbosa".equals(ata.getNome())).findAny().orElseThrow());
+        jogadores.add(DefesaController.obterLista().stream().filter(ata -> "David Luiz".equals(ata.getNome())).findAny().orElseThrow());
+        jogadores.add(MeioCampoController.obterLista().stream().filter(ata -> "João Gomes".equals(ata.getNome())).findAny().orElseThrow());
 
-        Tecnico tecnico = new Tecnico();
-        tecnico.setNome("Dorival Jr.");
-        tecnico.setIdade(64);
-        tecnico.setTempo_carreira(32);
-        System.out.println("> Técnico 1: " + tecnico);
+        Tecnico tecnico = TecnicoController.obterLista().stream().filter(tec -> "Dorival Jr.".equals(tec.getNome())).findAny().orElseThrow();
 
         Escalacao escalacao1 = new Escalacao(tecnico);
         escalacao1.setDescricao("4-3-3 Ofensivo");
@@ -75,5 +48,9 @@ public class EscalacaoTeste implements ApplicationRunner {
         escalacao3.setDescricao("Modelo que popula o meio campo com muitos jogadores. Funciona bem defensivamente para prejudicar o toque de bola adversário");
         escalacao3.setJogadores(jogadores);
         System.out.println("> Escalação 3: " + escalacao3);
+
+        EscalacaoController.incluir(escalacao1);
+        EscalacaoController.incluir(escalacao2);
+        EscalacaoController.incluir(escalacao3);
     }
 }

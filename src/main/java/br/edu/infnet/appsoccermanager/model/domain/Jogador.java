@@ -2,14 +2,15 @@ package br.edu.infnet.appsoccermanager.model.domain;
 
 public abstract class Jogador {
 
-    String nome;
-    Float peso;
-    Float altura;
-    String analise;
+    private Integer id;
+    private String nome;
+    private Float peso;
+    private Float altura;
+    private String analise;
 
     @Override
     public String toString() {
-        return  nome + ';' + peso + ";" + altura + ";" + analise;
+        return  id + ";" + nome + ';' + peso + ";" + altura + ";" + analise;
     }
 
     public String getNome() {
@@ -42,5 +43,13 @@ public abstract class Jogador {
 
     public void setAnalise(String analise) {
         this.analise = analise;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

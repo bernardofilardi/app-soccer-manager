@@ -2,6 +2,7 @@ package br.edu.infnet.appsoccermanager.model.domain;
 
 public class Tecnico {
 
+    private Integer id;
     private String nome;
     private int idade;
     private int tempo_carreira;
@@ -9,6 +10,14 @@ public class Tecnico {
     @Override
     public String toString() {
         return nome + ';' + idade + ";" + tempo_carreira;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

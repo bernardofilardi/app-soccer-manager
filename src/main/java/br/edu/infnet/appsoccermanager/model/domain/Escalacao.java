@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Escalacao {
 
+    private Integer id;
+
     private String descricao;
     private String organizacao;
     private boolean utilizada_anteriormente;
@@ -19,6 +21,14 @@ public class Escalacao {
     @Override
     public String toString() {
         return descricao + ';' + organizacao + ';' + utilizada_anteriormente + ";" + analise + ";" + tecnico;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -68,4 +78,6 @@ public class Escalacao {
     public void setJogadores(List<Jogador> jogadores) {
         this.jogadores = jogadores;
     }
+
+
 }

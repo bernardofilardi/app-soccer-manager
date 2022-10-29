@@ -1,5 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
+import br.edu.infnet.appsoccermanager.controller.MeioCampoController;
 import br.edu.infnet.appsoccermanager.model.domain.MeioCampo;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -41,5 +42,8 @@ public class MeioCampoTeste implements ApplicationRunner {
         meioCampo3.setAcerto_passe(Float.parseFloat("90")) ;
         System.out.println("> Meio Campo 3: " + meioCampo3);
 
+        MeioCampoController.incluir(meioCampo1);
+        MeioCampoController.incluir(meioCampo2);
+        MeioCampoController.incluir(meioCampo3);
     }
 }

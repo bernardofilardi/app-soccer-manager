@@ -1,5 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
+import br.edu.infnet.appsoccermanager.controller.AtacanteController;
 import br.edu.infnet.appsoccermanager.model.domain.Atacante;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,6 +22,7 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante1.setAnalise("Atacante com presença de área e finalização da entrada da mesma.");
         atacante1.setAtua_meiocampo(false);
         atacante1.setAcerto_finalizacao(Float.parseFloat("72"));
+        AtacanteController.incluir(atacante1);
         System.out.println("> Atacante 1: " + atacante1);
 
         Atacante atacante2 = new Atacante();
@@ -30,6 +32,7 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante2.setAnalise("Atacante que joga pelo lado do campo.");
         atacante2.setAtua_meiocampo(false);
         atacante2.setAcerto_finalizacao(Float.parseFloat("70"));
+        AtacanteController.incluir(atacante2);
         System.out.println("> Atacante 2: " + atacante2);
 
         Atacante atacante3 = new Atacante();
@@ -39,6 +42,7 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante3.setAnalise("Atacante com grande porte físico, presença de área, mas sem muita velocidade. Ótimo posicionamento dentro de campo.");
         atacante3.setAtua_meiocampo(false);
         atacante3.setAcerto_finalizacao(Float.parseFloat("78"));
+        AtacanteController.incluir(atacante3);
         System.out.println("> Atacante 3: " + atacante3);
 
 
