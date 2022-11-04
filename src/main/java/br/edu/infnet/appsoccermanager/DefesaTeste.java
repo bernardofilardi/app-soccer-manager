@@ -2,6 +2,7 @@ package br.edu.infnet.appsoccermanager;
 
 import br.edu.infnet.appsoccermanager.controller.DefesaController;
 import br.edu.infnet.appsoccermanager.model.domain.Defesa;
+import br.edu.infnet.appsoccermanager.model.service.DefesaService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -10,6 +11,12 @@ import org.springframework.stereotype.Component;
 @Order(7)
 @Component
 public class DefesaTeste implements ApplicationRunner {
+
+    public DefesaTeste(DefesaService service) {
+        this.service = service;
+    }
+
+    DefesaService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -42,9 +49,9 @@ public class DefesaTeste implements ApplicationRunner {
         defesa3.setAcerto_desarme(Float.parseFloat("93"));
         System.out.println("> Zagueiro 3: " + defesa3);
 
-        DefesaController.incluir(defesa1);
-        DefesaController.incluir(defesa2);
-        DefesaController.incluir(defesa3);
+        service.incluir(defesa1);
+        service.incluir(defesa2);
+        service.incluir(defesa3);
 
     }
 }

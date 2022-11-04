@@ -2,6 +2,8 @@ package br.edu.infnet.appsoccermanager;
 
 import br.edu.infnet.appsoccermanager.controller.TecnicoController;
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
+import br.edu.infnet.appsoccermanager.model.service.MeioCampoService;
+import br.edu.infnet.appsoccermanager.model.service.TecnicoService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -10,6 +12,12 @@ import org.springframework.stereotype.Component;
 @Order(2)
 @Component
 public class TecnicoTeste implements ApplicationRunner {
+
+    private TecnicoService service;
+
+    TecnicoTeste(TecnicoService service) {
+        this.service = service;
+    }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -33,8 +41,8 @@ public class TecnicoTeste implements ApplicationRunner {
         tecnico3.setTempo_carreira(12);
         System.out.println("> Técnico 3: " + tecnico3);
 
-        TecnicoController.incluir(tecnico1);
-        TecnicoController.incluir(tecnico2);
-        TecnicoController.incluir(tecnico3);
+        service.incluir(tecnico1);
+        service.incluir(tecnico2);
+        service.incluir(tecnico3);
     }
 }

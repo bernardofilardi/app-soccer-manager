@@ -16,6 +16,7 @@
 
 </head>
 <body>
+    <c:import url="/WEB-INF/jsp/menu.jsp"/>
     <div class="container mt-3">
         <h3>Atacantes: ${listagem.size()}</h3>
         <table class="table table-striped">

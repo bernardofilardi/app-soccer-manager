@@ -1,5 +1,10 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "defesa")
 public class Defesa extends Jogador {
 
     private boolean atua_volante;

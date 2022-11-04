@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <c:import url="/WEB-INF/jsp/menu.jsp"/>
     <div class="container mt-3">
         <h3>Escalações: ${listagem.size()}</h3>
         <table class="table table-striped">

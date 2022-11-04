@@ -1,7 +1,13 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tecnico")
 public class Tecnico {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private int idade;

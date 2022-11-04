@@ -16,30 +16,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="container mt-3">
-    <h3>Técnicos: ${listagem.size()}</h3>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Tempo de carreira</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${listagem}" var="tecnico">
+    <c:import url="/WEB-INF/jsp/menu.jsp"/>
+    <div class="container mt-3">
+        <h3>Técnicos: ${listagem.size()}</h3>
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>${tecnico.id}</td>
-                <td>${tecnico.nome}</td>
-                <td>${tecnico.idade}</td>
-                <td>${tecnico.tempo_carreira}</td>
-                <td><a href="/tecnico/${tecnico.id}/excluir">excluir</a></td>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Tempo de carreira</th>
+                <th></th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach items="${listagem}" var="tecnico">
+                <tr>
+                    <td>${tecnico.id}</td>
+                    <td>${tecnico.nome}</td>
+                    <td>${tecnico.idade}</td>
+                    <td>${tecnico.tempo_carreira}</td>
+                    <td><a href="/tecnico/${tecnico.id}/excluir">excluir</a></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

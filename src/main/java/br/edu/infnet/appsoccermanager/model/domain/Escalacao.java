@@ -1,21 +1,33 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "escalacao")
 public class Escalacao {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String descricao;
     private String organizacao;
     private boolean utilizada_anteriormente;
     private String analise;
+
+    @Transient
     private Tecnico tecnico;
 
+    @Transient
     private List<Jogador> jogadores;
 
     public Escalacao(Tecnico tecnico) {
         this.setTecnico(tecnico);
+    }
+
+    public Escalacao() {
+
     }
 
     @Override

@@ -1,7 +1,12 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
-public abstract class Jogador {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "jogador")
+public abstract class Jogador {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private Float peso;
