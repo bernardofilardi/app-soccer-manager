@@ -19,6 +19,10 @@
     <c:import url="/WEB-INF/jsp/menu.jsp"/>
     <div class="container mt-3">
         <h3>Meio Campista: ${listagem.size()}</h3>
+        <form action="/meiocampo" method="get">
+            <button type="submit" class="btn btn-success">Novo</button>
+        </form>
+
         <table class="table table-striped">
             <thead>
             <tr>
