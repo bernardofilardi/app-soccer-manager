@@ -12,13 +12,13 @@
     <title>App Soccer Manager - Usuário</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <c:import url="/WEB-INF/jsp/menu.jsp"/>
     <div class="container mt-3">
         <h2>Usuário</h2>
-        <form action="/tecnico/incluir" method="post">
+        <form action="/usuario/incluir" method="post">
             <div class="form-group">
                 <label>Nome:</label>
                 <input type="text" class="form-control" placeholder="Entre com o nome do Usuário" name="nome">

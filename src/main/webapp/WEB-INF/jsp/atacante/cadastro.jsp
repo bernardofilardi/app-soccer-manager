@@ -12,7 +12,7 @@
     <title>App Soccer Manager - Atacante</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 </head>
 <body>
@@ -37,12 +37,12 @@
                 <input type="text" class="form-control" placeholder="Defina a análise sobre o Atacante" name="analise">
             </div>
             <div class="form-group">
-                <label>Atua como volante?</label>
-                <input type="text" class="form-control" placeholder="Esse Atacante atua como volante" name="atua_volante">
+                <label>Atua como Meio Campo?</label>
+                <input type="text" class="form-control" placeholder="Esse Atacante atua como meio campo" name="atua_meiocampo">
             </div>
             <div class="form-group">
                 <label>Percentual de acerto nos passes:</label>
-                <input type="text" class="form-control" placeholder="Percentual de acerto nos passes" name="acerto_passe">
+                <input type="text" class="form-control" placeholder="Percentual de acerto nas finalizações" name="acerto_finalizacao">
             </div>
 
             <button type="submit" class="btn btn-default">Cadastrar</button>

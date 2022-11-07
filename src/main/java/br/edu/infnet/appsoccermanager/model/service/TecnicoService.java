@@ -30,7 +30,7 @@ public class TecnicoService {
     }
 
     public Tecnico busca(String name) {
-        return repository.findByName(name);
+        return repository.findByNome(name);
     }
 
 }

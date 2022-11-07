@@ -32,13 +32,10 @@ public class UsuarioTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("### Cadastro de Usuário ###");
 
-        Tecnico tecnico = tecnicoService.busca("Dorival Jr.");
-
         Usuario usuario = new Usuario();
         usuario.setNome("dorivaljr");
         usuario.setEmail("dorival.jr@mail.com");
         usuario.setSenha("123456");
-        usuario.setTecnicos(Collections.singletonList(tecnico));
         System.out.println("> Usuario: " + usuario.toString());
 
         usuarioService.incluir(usuario);

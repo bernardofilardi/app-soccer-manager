@@ -1,7 +1,6 @@
 package br.edu.infnet.appsoccermanager.controller;
 
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
-import br.edu.infnet.appsoccermanager.model.domain.Usuario;
 import br.edu.infnet.appsoccermanager.model.service.TecnicoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

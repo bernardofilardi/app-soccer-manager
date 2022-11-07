@@ -14,8 +14,11 @@ import javax.servlet.http.HttpSession;
 @SessionAttributes("user")
 public class AppSoccerManagerController {
 
-    @Autowired
-    private UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
+
+    public AppSoccerManagerController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @GetMapping(value = "/")
     public String home() {

@@ -5,28 +5,28 @@
   Time: 22:23
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/z">Home</a></li>
             <c:if test="${not empty user}">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/escalacao/lista">Escalação</a>
+                    <a class="nav-link" href="/escalacao/lista">EscalaÃ§Ã£o</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/tecnico/lista">Técnico</a>
+                    <a class="nav-link" href="/tecnico/lista">TÃ©cnico</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/atacante/lista">Atacante</a>
+                    <a class="nav-link" href="/atacante/lista">Atacante</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/defesa/lista">Defesa</a>
+                    <a class="nav-link" href="/defesa/lista">Defesa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/meiocampo/lista">Meio Campo</a>
+                    <a class="nav-link" href="/meiocampo/lista">Meio Campo</a>
                 </li>
             </c:if>
         </ul>

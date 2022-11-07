@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TecnicoRepository extends CrudRepository<Tecnico, Integer> {
 
-    Tecnico findByName(String nome);
+    Tecnico findByNome(String nome);
 
 }
