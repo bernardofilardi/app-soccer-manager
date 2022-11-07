@@ -1,15 +1,13 @@
 package br.edu.infnet.appsoccermanager;
 
-import br.edu.infnet.appsoccermanager.controller.MeioCampoController;
 import br.edu.infnet.appsoccermanager.model.domain.MeioCampo;
-import br.edu.infnet.appsoccermanager.model.service.EscalacaoService;
 import br.edu.infnet.appsoccermanager.model.service.MeioCampoService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Order(6)
+@Order(5)
 @Component
 public class MeioCampoTeste implements ApplicationRunner {
 

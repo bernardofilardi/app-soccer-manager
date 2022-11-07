@@ -37,4 +37,8 @@ public class UsuarioService {
 
         return null;
     }
+
+    public Usuario busca(String email) {
+        return repository.findByEmail(email);
+    }
 }

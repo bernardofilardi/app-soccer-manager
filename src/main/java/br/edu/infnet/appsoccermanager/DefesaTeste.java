@@ -1,6 +1,5 @@
 package br.edu.infnet.appsoccermanager;
 
-import br.edu.infnet.appsoccermanager.controller.DefesaController;
 import br.edu.infnet.appsoccermanager.model.domain.Defesa;
 import br.edu.infnet.appsoccermanager.model.service.DefesaService;
 import org.springframework.boot.ApplicationArguments;
@@ -8,7 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Order(7)
+@Order(4)
 @Component
 public class DefesaTeste implements ApplicationRunner {
 

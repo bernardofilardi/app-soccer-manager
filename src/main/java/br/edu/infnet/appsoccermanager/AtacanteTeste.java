@@ -1,9 +1,7 @@
 package br.edu.infnet.appsoccermanager;
 
-import br.edu.infnet.appsoccermanager.controller.AtacanteController;
 import br.edu.infnet.appsoccermanager.model.domain.Atacante;
 import br.edu.infnet.appsoccermanager.model.service.AtacanteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;

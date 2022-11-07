@@ -1,7 +1,5 @@
 package br.edu.infnet.appsoccermanager.model.service;
 
-import br.edu.infnet.appsoccermanager.model.domain.Atacante;
-import br.edu.infnet.appsoccermanager.model.domain.Defesa;
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
 import br.edu.infnet.appsoccermanager.model.repository.TecnicoRepository;
 import org.springframework.stereotype.Service;
@@ -23,6 +21,10 @@ public class TecnicoService {
 
     public Collection<Tecnico> obterLista() {
         return (Collection<Tecnico>) repository.findAll();
+    }
+
+    public Collection<Tecnico> obterLista(Integer userId) {
+        return repository.obterLista(userId);
     }
 
     public void excluir(Integer id) {

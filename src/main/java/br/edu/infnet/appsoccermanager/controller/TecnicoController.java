@@ -1,13 +1,11 @@
 package br.edu.infnet.appsoccermanager.controller;
 
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
+import br.edu.infnet.appsoccermanager.model.domain.Usuario;
 import br.edu.infnet.appsoccermanager.model.service.TecnicoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @SessionAttributes("user")
@@ -19,8 +17,8 @@ public class TecnicoController {
     }
 
     @GetMapping("/tecnico/lista")
-    public String lista(Model model) {
-        model.addAttribute("listagem", tecnicoService.obterLista());
+    public String lista(Model model, @SessionAttribute("user") Usuario usuario) {
+        model.addAttribute("listagem", tecnicoService.obterLista(usuario.getId()));
 
         return "tecnico/lista";
     }
@@ -36,8 +34,9 @@ public class TecnicoController {
     }
 
     @PostMapping(value = "/tecnico/incluir")
-    public String incluir(Tecnico tecnico) {
+    public String incluir(Tecnico tecnico, @SessionAttribute("user") Usuario usuario) {
 
+        tecnico.setUsuario(usuario);
         tecnicoService.incluir(tecnico);
 
         return "redirect:/tecnico/lista";

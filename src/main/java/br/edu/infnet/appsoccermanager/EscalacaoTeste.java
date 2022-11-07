@@ -1,9 +1,5 @@
 package br.edu.infnet.appsoccermanager;
 
-import br.edu.infnet.appsoccermanager.controller.AtacanteController;
-import br.edu.infnet.appsoccermanager.controller.DefesaController;
-import br.edu.infnet.appsoccermanager.controller.MeioCampoController;
-import br.edu.infnet.appsoccermanager.controller.TecnicoController;
 import br.edu.infnet.appsoccermanager.model.domain.Escalacao;
 import br.edu.infnet.appsoccermanager.model.domain.Jogador;
 import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
@@ -16,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Order(9)
+@Order(6)
 @Component
 public class EscalacaoTeste implements ApplicationRunner {
 
