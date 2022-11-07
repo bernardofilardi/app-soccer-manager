@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AtacanteController {
@@ -28,6 +25,17 @@ public class AtacanteController {
     @GetMapping("/atacante/{id}/excluir")
     public String remove(@PathVariable String id) {
         atacanteService.excluir(Integer.parseInt(id));
+        return "redirect:/atacante/lista";
+    }
+
+    @GetMapping("/atacante")
+    public String novo() {
+        return "atacante/cadastro";
+    }
+
+    @PostMapping("/atacante/incluir")
+    public String cadastrar(Atacante atacante) {
+        atacanteService.incluir(atacante);
         return "redirect:/atacante/lista";
     }
 

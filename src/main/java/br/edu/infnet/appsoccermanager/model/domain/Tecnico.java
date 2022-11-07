@@ -13,6 +13,9 @@ public class Tecnico {
     private int idade;
     private int tempo_carreira;
 
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
     @Override
     public String toString() {
         return nome + ';' + idade + ";" + tempo_carreira;
@@ -48,5 +51,13 @@ public class Tecnico {
 
     public void setTempo_carreira(int tempo_carreira) {
         this.tempo_carreira = tempo_carreira;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

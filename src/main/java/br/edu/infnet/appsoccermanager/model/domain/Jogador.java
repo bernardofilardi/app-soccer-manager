@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "jogador")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Jogador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

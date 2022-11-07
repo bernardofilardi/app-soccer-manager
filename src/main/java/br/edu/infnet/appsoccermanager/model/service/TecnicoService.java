@@ -29,4 +29,8 @@ public class TecnicoService {
         repository.deleteById(id);
     }
 
+    public Tecnico busca(String name) {
+        return repository.findByName(name);
+    }
+
 }

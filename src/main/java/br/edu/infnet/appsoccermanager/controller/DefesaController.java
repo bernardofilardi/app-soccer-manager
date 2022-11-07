@@ -1,10 +1,12 @@
 package br.edu.infnet.appsoccermanager.controller;
 
+import br.edu.infnet.appsoccermanager.model.domain.Defesa;
 import br.edu.infnet.appsoccermanager.model.service.DefesaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class DefesaController {
@@ -25,4 +27,16 @@ public class DefesaController {
         defesaService.excluir(Integer.parseInt(id));
         return "redirect:/defesa/lista";
     }
+
+    @GetMapping("/defesa")
+    public String novo() {
+        return "defesa/cadastro";
+    }
+
+    @PostMapping("/defesa/incluir")
+    public String cadastrar(Defesa defesa) {
+        defesaService.incluir(defesa);
+        return "redirect:/defesa/lista";
+    }
+
 }

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Order(8)
+@Order(9)
 @Component
 public class EscalacaoTeste implements ApplicationRunner {
 
