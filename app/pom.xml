@@ -9,11 +9,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.edu.infnet</groupId>
-	<artifactId>app-soccer-manager</artifactId>
+	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>app-soccer-manager</name>
-	<description>app-soccer-manager</description>
+	<name>app</name>
+	<description>app</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
