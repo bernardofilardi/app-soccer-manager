@@ -45,6 +45,15 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity buscarUsuario(@PathVariable Integer id) {
+        try {
+            return ResponseEntity.ok(usuarioService.pesquisar(id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @GetMapping
     public List<Usuario> obterLista() {
         return usuarioService.listar();
