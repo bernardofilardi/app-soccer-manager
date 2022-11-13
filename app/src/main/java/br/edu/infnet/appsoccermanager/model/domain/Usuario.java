@@ -15,6 +15,10 @@ public class Usuario {
     private String email;
     private String senha;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idendereco")
+    private Endereco endereco;
+
     @Override
     public String toString() {
         return id + ";" + nome + ";" + email + ";" + senha + ";" + tecnicos;
@@ -23,6 +27,14 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Tecnico> tecnicos;
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
     public Integer getId() {
         return id;
