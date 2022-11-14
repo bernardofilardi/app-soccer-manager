@@ -1,7 +1,9 @@
 package br.edu.infnet.appsoccermanager;
 
 import br.edu.infnet.appsoccermanager.model.domain.Atacante;
-import br.edu.infnet.appsoccermanager.model.service.AtacanteService;
+import br.edu.infnet.appsoccermanager.model.domain.Usuario;
+import br.edu.infnet.appsoccermanager.model.service.JogadorService;
+import br.edu.infnet.appsoccermanager.model.service.UsuarioService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -11,15 +13,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class AtacanteTeste implements ApplicationRunner {
 
-    private final AtacanteService atacanteService;
+    private final JogadorService jogadorService;
 
-    public AtacanteTeste(AtacanteService atacanteService) {
-        this.atacanteService = atacanteService;
+    private final UsuarioService usuarioService;
+
+    public AtacanteTeste(JogadorService jogadorService, UsuarioService usuarioService) {
+        this.jogadorService = jogadorService;
+        this.usuarioService = usuarioService;
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("### Cadastro de Atacantes ###");
+
+        Usuario usuario = usuarioService.busca("dorivaljr@mail.com");
 
         Atacante atacante1 = new Atacante();
         atacante1.setNome("Gabriel Barbosa");
@@ -28,6 +35,7 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante1.setAnalise("Atacante com presença de área e finalização da entrada da mesma.");
         atacante1.setAtua_meiocampo(false);
         atacante1.setAcerto_finalizacao(Float.parseFloat("72"));
+        atacante1.setUsuario(usuario);
         System.out.println("> Atacante 1: " + atacante1);
 
         Atacante atacante2 = new Atacante();
@@ -37,6 +45,7 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante2.setAnalise("Atacante que joga pelo lado do campo.");
         atacante2.setAtua_meiocampo(false);
         atacante2.setAcerto_finalizacao(Float.parseFloat("70"));
+        atacante2.setUsuario(usuario);
         System.out.println("> Atacante 2: " + atacante2);
 
         Atacante atacante3 = new Atacante();
@@ -46,11 +55,12 @@ public class AtacanteTeste implements ApplicationRunner {
         atacante3.setAnalise("Atacante com grande porte físico, presença de área, mas sem muita velocidade. Ótimo posicionamento dentro de campo.");
         atacante3.setAtua_meiocampo(false);
         atacante3.setAcerto_finalizacao(Float.parseFloat("78"));
+        atacante3.setUsuario(usuario);
         System.out.println("> Atacante 3: " + atacante3);
 
-        atacanteService.incluir(atacante1);
-        atacanteService.incluir(atacante2);
-        atacanteService.incluir(atacante3);
+        jogadorService.incluir(atacante1);
+        jogadorService.incluir(atacante2);
+        jogadorService.incluir(atacante3);
 
     }
 }

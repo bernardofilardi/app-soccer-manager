@@ -17,33 +17,26 @@ import java.util.List;
 public class EscalacaoTeste implements ApplicationRunner {
 
     private final EscalacaoService escalacaoService;
-    private final AtacanteService atacanteService;
-    private final DefesaService defesaService;
-    private final MeioCampoService meioCampoService;
-
+    private final JogadorService jogadorService;
     private final TecnicoService tecnicoService;
+    private final UsuarioService usuarioService;
 
     EscalacaoTeste(EscalacaoService escalacaoService,
-                   AtacanteService atacanteService,
-                   DefesaService defesaService,
-                   MeioCampoService meioCampoService,
-                   TecnicoService tecnicoService)
+                   JogadorService jogadorService,
+                   TecnicoService tecnicoService,
+                   UsuarioService usuarioService)
     {
         this.escalacaoService = escalacaoService;
-        this.atacanteService = atacanteService;
-        this.defesaService = defesaService;
-        this.meioCampoService = meioCampoService;
+        this.jogadorService = jogadorService;
         this.tecnicoService = tecnicoService;
+        this.usuarioService = usuarioService;
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         System.out.println("### Cadastro de Escalações ###");
 
-        List<Jogador> jogadores = new ArrayList<>();
-        jogadores.add(atacanteService.obterLista().stream().filter(ata -> "Gabriel Barbosa".equals(ata.getNome())).findAny().orElseThrow());
-        jogadores.add(defesaService.obterLista().stream().filter(ata -> "David Luiz".equals(ata.getNome())).findAny().orElseThrow());
-        jogadores.add(meioCampoService.obterLista().stream().filter(ata -> "João Gomes".equals(ata.getNome())).findAny().orElseThrow());
+        List<Jogador> jogadores = jogadorService.obterLista(usuarioService.busca("dorivaljr@mail.com").getId()).stream().toList();
 
         Tecnico tecnico = tecnicoService.obterLista().stream().filter(tec -> "Dorival Jr.".equals(tec.getNome())).findAny().orElseThrow();
 

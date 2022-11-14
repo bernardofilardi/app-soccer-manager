@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 @Order(2)
 @Component
 public class TecnicoTeste implements ApplicationRunner {
-
     private final TecnicoService tecnicoService;
-
     private final UsuarioService usuarioService;
 
     TecnicoTeste(TecnicoService tecnicoService, UsuarioService usuarioService) {

@@ -1,6 +1,7 @@
 package br.edu.infnet.appsoccermanager.model.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,10 +17,15 @@ public class Escalacao {
     private boolean utilizada_anteriormente;
     private String analise;
 
-    @Transient
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idTecnico")
     private Tecnico tecnico;
 
-    @Transient
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
+    @ManyToMany
     private List<Jogador> jogadores;
 
     public Escalacao(Tecnico tecnico) {
@@ -27,7 +33,6 @@ public class Escalacao {
     }
 
     public Escalacao() {
-
     }
 
     @Override
@@ -83,6 +88,14 @@ public class Escalacao {
         this.tecnico = tecnico;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public List<Jogador> getJogadores() {
         return jogadores;
     }
@@ -90,6 +103,4 @@ public class Escalacao {
     public void setJogadores(List<Jogador> jogadores) {
         this.jogadores = jogadores;
     }
-
-
 }

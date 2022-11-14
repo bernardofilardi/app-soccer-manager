@@ -9,21 +9,22 @@ import java.util.Collection;
 @Service
 public class AtacanteService {
 
-    public AtacanteService(AtacanteRepository repository) {
-        this.repository = repository;
-    }
+    private final AtacanteRepository atacanteRepository;
 
-    private final AtacanteRepository repository;
+    public AtacanteService(AtacanteRepository atacanteRepository) {
+        this.atacanteRepository = atacanteRepository;
+    }
 
     public void incluir(Atacante atacante) {
-        repository.save(atacante);
+        atacanteRepository.save(atacante);
     }
 
-    public Collection<Atacante> obterLista() {
-        return (Collection<Atacante>) repository.findAll();
+    public Collection<Atacante> obterLista(Integer userId) {
+        return atacanteRepository.listarPor(userId);
     }
 
     public void excluir(Integer id) {
-        repository.deleteById(id);
+        atacanteRepository.deleteById(id);
     }
+
 }

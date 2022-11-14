@@ -1,5 +1,7 @@
 package br.edu.infnet.appsoccermanager.model.service;
 
+import br.edu.infnet.appsoccermanager.clients.IEnderecoClient;
+import br.edu.infnet.appsoccermanager.model.domain.Endereco;
 import br.edu.infnet.appsoccermanager.model.domain.Usuario;
 import br.edu.infnet.appsoccermanager.model.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -9,9 +11,12 @@ import java.util.Collection;
 @Service
 public class UsuarioService {
 
+    private final IEnderecoClient enderecoClient;
+
     private final UsuarioRepository repository;
 
-    public UsuarioService(UsuarioRepository repository) {
+    public UsuarioService(IEnderecoClient enderecoClient, UsuarioRepository repository) {
+        this.enderecoClient = enderecoClient;
         this.repository = repository;
     }
 
@@ -41,4 +46,9 @@ public class UsuarioService {
     public Usuario busca(String email) {
         return repository.findByEmail(email);
     }
+
+    public Endereco buscarCep(String cep) {
+        return enderecoClient.buscarCep(cep);
+    }
+
 }

@@ -15,18 +15,24 @@ public class Usuario {
     private String email;
     private String senha;
 
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Tecnico> tecnicos;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Escalacao> escalacoes;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Jogador> jogadores;
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "idendereco")
     private Endereco endereco;
 
+
     @Override
     public String toString() {
-        return id + ";" + nome + ";" + email + ";" + senha + ";" + tecnicos;
+        return id + ";" + nome + ";" + email + ";" + senha;
     }
-
-    @OneToMany
-    @JoinColumn(name = "idUsuario")
-    private List<Tecnico> tecnicos;
 
     public Endereco getEndereco() {
         return endereco;
@@ -74,5 +80,21 @@ public class Usuario {
 
     public void setTecnicos(List<Tecnico> tecnicos) {
         this.tecnicos = tecnicos;
+    }
+
+    public List<Escalacao> getEscalacoes() {
+        return escalacoes;
+    }
+
+    public void setEscalacoes(List<Escalacao> escalacoes) {
+        this.escalacoes = escalacoes;
+    }
+
+    public List<Jogador> getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(List<Jogador> jogadores) {
+        this.jogadores = jogadores;
     }
 }

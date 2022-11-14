@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class TecnicoController {
 
     TecnicoService tecnicoService;
+
     public TecnicoController(TecnicoService tecnicoService) {
         this.tecnicoService = tecnicoService;
     }
@@ -22,6 +23,7 @@ public class TecnicoController {
 
         return "tecnico/lista";
     }
+
     @GetMapping("/tecnico/{id}/excluir")
     public String remove(@PathVariable String id) {
         tecnicoService.excluir(Integer.parseInt(id));
@@ -35,8 +37,8 @@ public class TecnicoController {
 
     @PostMapping(value = "/tecnico/incluir")
     public String incluir(Tecnico tecnico, @SessionAttribute("user") Usuario usuario) {
-
         tecnico.setUsuario(usuario);
+
         tecnicoService.incluir(tecnico);
 
         return "redirect:/tecnico/lista";

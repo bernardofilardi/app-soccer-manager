@@ -21,28 +21,39 @@
         <h2>Escalacao</h2>
         <form action="/escalacao/incluir" method="post">
             <div class="form-group">
-                <label>Nome:</label>
-                <input type="text" class="form-control" placeholder="Entre com o nome do Escalacao" name="nome">
+                <label>Descricao:</label>
+                <input type="text" class="form-control" placeholder="Entre com a descricao da Escalacao" name="nome">
             </div>
             <div class="form-group">
-                <label>Peso (kg):</label>
-                <input type="text" class="form-control" placeholder="Entre com o peso do Escalacao" name="peso">
+                <label>Organização:</label>
+                <input type="text" class="form-control" placeholder="Qual a organização dos jogadores (Ex: 442, 433, 451)" name="organizacao">
             </div>
             <div class="form-group">
-                <label>Altura (cm):</label>
-                <input type="text" class="form-control" placeholder="Entre com a altura do Escalacao" name="altura">
+                <label>Já Utilizada?</label>
+                <input type="text" class="form-control" placeholder="Entre com a altura do Escalacao" name="utilizada_anteriormente">
             </div>
             <div class="form-group">
                 <label>Análise:</label>
-                <input type="text" class="form-control" placeholder="Defina a análise sobre o Escalacao" name="analise">
+                <input type="text" class="form-control" placeholder="Defina a análise sobre a Escalacao" name="analise">
             </div>
+
             <div class="form-group">
-                <label>Atua como volante?</label>
-                <input type="text" class="form-control" placeholder="Esse Escalacao atua como volante" name="atua_volante">
+                <label>Solicitante:</label>
+                <select name="tecnico" class="form-control">
+                    <c:forEach var="t" items="${tecnicos}">
+                        <option value="${t.id}">${t.nome}</option>
+                    </c:forEach>
+                </select>
             </div>
+
             <div class="form-group">
-                <label>Percentual de acerto nos passes:</label>
-                <input type="text" class="form-control" placeholder="Percentual de acerto nos passes" name="acerto_passe">
+                <label>Jogadores:</label>
+                <c:forEach var="jogador" items="${jogadores}">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="jogadores" value="${jogador.id}">
+                        <label class="form-check-label"> ${jogador.nome}</label>
+                    </div>
+                </c:forEach>
             </div>
 
             <button type="submit" class="btn btn-default">Cadastrar</button>

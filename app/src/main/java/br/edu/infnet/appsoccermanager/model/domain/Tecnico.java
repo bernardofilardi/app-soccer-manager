@@ -13,7 +13,7 @@ public class Tecnico {
     private int idade;
     private int tempo_carreira;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
     @Override

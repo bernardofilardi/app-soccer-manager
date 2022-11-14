@@ -1,9 +1,6 @@
 package br.edu.infnet.appsoccermanager;
 
-import br.edu.infnet.appsoccermanager.model.domain.Escalacao;
-import br.edu.infnet.appsoccermanager.model.domain.Jogador;
-import br.edu.infnet.appsoccermanager.model.domain.Tecnico;
-import br.edu.infnet.appsoccermanager.model.domain.Usuario;
+import br.edu.infnet.appsoccermanager.model.domain.*;
 import br.edu.infnet.appsoccermanager.model.service.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -36,22 +33,9 @@ public class UsuarioTeste implements ApplicationRunner {
         usuario1.setNome("Dorival Jr.");
         usuario1.setEmail("dorivaljr@mail.com");
         usuario1.setSenha("123456");
+        usuario1.setEndereco(usuarioService.buscarCep("22743311"));
         System.out.println("> Usuario: " + usuario1.toString());
 
-        Usuario usuario2 = new Usuario();
-        usuario2.setNome("Felipão");
-        usuario2.setEmail("felipao@mail.com");
-        usuario2.setSenha("123456");
-        System.out.println("> Usuario: " + usuario2.toString());
-
-        Usuario usuario3 = new Usuario();
-        usuario3.setNome("Abel Ferreira");
-        usuario3.setEmail("abel@mail.com");
-        usuario3.setSenha("123456");
-        System.out.println("> Usuario: " + usuario3.toString());
-
         usuarioService.incluir(usuario1);
-        usuarioService.incluir(usuario2);
-        usuarioService.incluir(usuario3);
     }
 }

@@ -32,6 +32,7 @@
                 <th>Já utilizada?</th>
                 <th>Análise</th>
                 <th>Técnico</th>
+                <th>Jogadores</th>
                 <th></th>
             </tr>
             </thead>
@@ -44,6 +45,7 @@
                     <td>${escalacao.utilizada_anteriormente}</td>
                     <td>${escalacao.analise}</td>
                     <td>${escalacao.tecnico.nome}</td>
+                    <td>${escalacao.jogadores.size()}</td>
                     <td><a href="/escalacao/${escalacao.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>

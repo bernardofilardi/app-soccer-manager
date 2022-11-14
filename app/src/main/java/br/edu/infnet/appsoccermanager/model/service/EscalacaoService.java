@@ -2,6 +2,7 @@ package br.edu.infnet.appsoccermanager.model.service;
 
 import br.edu.infnet.appsoccermanager.model.domain.Defesa;
 import br.edu.infnet.appsoccermanager.model.domain.Escalacao;
+import br.edu.infnet.appsoccermanager.model.domain.Usuario;
 import br.edu.infnet.appsoccermanager.model.repository.EscalacaoRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,8 @@ public class EscalacaoService {
         repository.save(Escalacao);
     }
 
-    public Collection<Escalacao> obterLista() {
-        return (Collection<Escalacao>) repository.findAll();
+    public Collection<Escalacao> obterLista(Usuario usuario) {
+        return repository.listarPor(usuario.getId());
     }
 
     public void excluir(Integer id) {

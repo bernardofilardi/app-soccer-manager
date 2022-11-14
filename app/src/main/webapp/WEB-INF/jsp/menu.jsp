@@ -11,7 +11,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/z">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <c:if test="${not empty user}">
                 <li class="nav-item">
                     <a class="nav-link" href="/escalacao/lista">Escalação</a>
